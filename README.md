@@ -1,3 +1,13 @@
+# 有關本專案
+
+這個系統的原始程式碼來自 http://reeborg.ca, 我們希望將此一系統中文化, 並且利用此一系統來進行 Python 3 與 JavaScript 的教學.
+
+原始作者: André Roberge
+
+中文化作者: course At mde dot tw
+
+License: MIT
+
 Information for developers & instructors
 ============================================
 
