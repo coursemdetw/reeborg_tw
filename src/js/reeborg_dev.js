@@ -1242,11 +1242,11 @@ RUR.make_default_menu = function(language) {
 RUR.make_default_menu_en = function () {
     "use strict";
     var contents,
-        tutorial_en = '/src/worlds/tutorial_en/',
-        menus = '/src/worlds/menus/',
-        worlds = '/src/worlds/',
-        docs = '/src/worlds/documentation/',
-        permalinks = '/src/worlds/permalinks/';
+        tutorial_en = 'src/worlds/tutorial_en/',
+        menus = 'src/worlds/menus/',
+        worlds = 'src/worlds/',
+        docs = 'src/worlds/documentation/',
+        permalinks = 'src/worlds/permalinks/';
 
     contents = [
         [worlds + 'alone.json', 'Alone'],
@@ -1312,16 +1312,16 @@ RUR.make_default_menu_fr = function () {
     "use strict";
     var base_url, base_url2, contents, menus, worlds;
 
-    base_url = '/src/worlds/tutorial_en/';
-    base_url2 = '/src/worlds/tutorial_fr/';
+    base_url = 'src/worlds/tutorial_en/';
+    base_url2 = 'src/worlds/tutorial_fr/';
 
-    menus = '/src/worlds/menus/';
-    worlds = '/src/worlds/';
+    menus = 'src/worlds/menus/';
+    worlds = 'src/worlds/';
 
 
     contents = [
-        ['/src/worlds/alone.json', 'Seul'],
-        ['/src/worlds/empty.json', 'Vide'],
+        ['src/worlds/alone.json', 'Seul'],
+        ['src/worlds/empty.json', 'Vide'],
         [base_url2 + 'around1.json', 'Autour 1'],
         [base_url2 + 'around2.json', 'Autour 2'],
         [base_url2 + 'around3.json', 'Autour 3'],
@@ -1366,7 +1366,7 @@ RUR.make_default_menu_fr = function () {
         [worlds + 'gravel_path_fr',
                            'Sentier de gravier (solution)'],
         [worlds + 'slalom.json', 'Slalom'],
-        ['/src/worlds/blank.json', 'Canevas graphique'],
+        ['src/worlds/blank.json', 'Canevas graphique'],
     ];
 
     RUR.custom_menu.make(contents);
@@ -1740,8 +1740,8 @@ RUR.add_object_image = function (name, url, url_goal) {
     obj[name].image = new Image();
     obj[name].image_goal = new Image();
     if (url === undefined) {
-        obj[name].image.src = RUR.base_url + '/src/images/' + name + '.png';
-        obj[name].image_goal.src = RUR.base_url + '/src/images/' + name + '_goal.png';
+        obj[name].image.src = RUR.base_url + 'src/images/' + name + '.png';
+        obj[name].image_goal.src = RUR.base_url + 'src/images/' + name + '_goal.png';
         obj[name].image.onload = RUR.increment_loaded;
         obj[name].image_goal.onload = RUR.increment_loaded;
         obj.nb_images += 2;
@@ -1781,7 +1781,7 @@ RUR.add_tile_image = function (name, url) {
     tiles[name].name = name;
     tiles[name].image = new Image();
     if (url===undefined) {
-        tiles[name].image.src = RUR.base_url + '/src/images/' + name + '.png';
+        tiles[name].image.src = RUR.base_url + 'src/images/' + name + '.png';
     } else {
         tiles[name].image.src = url;
     }
@@ -1818,17 +1818,17 @@ RUR.tiles.water.detectable = true;
 RUR.tiles.water.message = RUR.translate("I'm in water!");
 RUR.tiles.water.info = RUR.translate("Water: Reeborg <b>can</b> detect this but will get damaged if it moves to this location.");
 RUR.tiles.water.image = new Image();
-RUR.tiles.water.image.src = RUR.base_url + '/src/images/water.png';
+RUR.tiles.water.image.src = RUR.base_url + 'src/images/water.png';
 RUR.tiles.water.image2 = new Image();
-RUR.tiles.water.image2.src = RUR.base_url + '/src/images/water2.png';
+RUR.tiles.water.image2.src = RUR.base_url + 'src/images/water2.png';
 RUR.tiles.water.image3 = new Image();
-RUR.tiles.water.image3.src = RUR.base_url + '/src/images/water3.png';
+RUR.tiles.water.image3.src = RUR.base_url + 'src/images/water3.png';
 RUR.tiles.water.image4 = new Image();
-RUR.tiles.water.image4.src = RUR.base_url + '/src/images/water4.png';
+RUR.tiles.water.image4.src = RUR.base_url + 'src/images/water4.png';
 RUR.tiles.water.image5 = new Image();
-RUR.tiles.water.image5.src = RUR.base_url + '/src/images/water5.png';
+RUR.tiles.water.image5.src = RUR.base_url + 'src/images/water5.png';
 RUR.tiles.water.image6 = new Image();
-RUR.tiles.water.image6.src = RUR.base_url + '/src/images/water6.png';
+RUR.tiles.water.image6.src = RUR.base_url + 'src/images/water6.png';
 RUR.tiles.water.choose_image = function () {
     var choice = Math.floor(Math.random() * 6) + 1;
     switch (choice) {
@@ -1863,7 +1863,7 @@ RUR.add_home_image = function (name, info) {
     home[name].detectable = true;
     home[name].info = RUR.translate(info) + RUR.translate("Reeborg <b>can</b> detect this tile using at_goal().");
     home[name].image = new Image();
-    home[name].image.src = RUR.base_url + '/src/images/' + name + '.png';
+    home[name].image.src = RUR.base_url + 'src/images/' + name + '.png';
     home[name].image.onload = RUR.increment_loaded;
     RUR.objects.nb_images += 1;
 };
@@ -1887,7 +1887,7 @@ RUR.add_solid_object = function (name, url, nickname) {
     obj[name].ctx = RUR.SECOND_LAYER_CTX;
     obj[name].image = new Image();
     if (!url) {
-        obj[name].image.src = RUR.base_url + '/src/images/' + name + '.png';
+        obj[name].image.src = RUR.base_url + 'src/images/' + name + '.png';
     } else {
         obj[name].image.src = url;
     }
@@ -3404,51 +3404,51 @@ RUR.base_url = RUR.base_url || '';  // enable changing defaults for unit tests
 
 // classic
 RUR.vis_robot.images[0].robot_e_img = new Image();
-RUR.vis_robot.images[0].robot_e_img.src = RUR.base_url + '/src/images/robot_e.png';
+RUR.vis_robot.images[0].robot_e_img.src = RUR.base_url + 'src/images/robot_e.png';
 RUR.vis_robot.images[0].robot_n_img = new Image();
-RUR.vis_robot.images[0].robot_n_img.src = RUR.base_url + '/src/images/robot_n.png';
+RUR.vis_robot.images[0].robot_n_img.src = RUR.base_url + 'src/images/robot_n.png';
 RUR.vis_robot.images[0].robot_w_img = new Image();
-RUR.vis_robot.images[0].robot_w_img.src = RUR.base_url + '/src/images/robot_w.png';
+RUR.vis_robot.images[0].robot_w_img.src = RUR.base_url + 'src/images/robot_w.png';
 RUR.vis_robot.images[0].robot_s_img = new Image();
-RUR.vis_robot.images[0].robot_s_img.src = RUR.base_url + '/src/images/robot_s.png';
+RUR.vis_robot.images[0].robot_s_img.src = RUR.base_url + 'src/images/robot_s.png';
 RUR.vis_robot.images[0].robot_random_img = new Image();
-RUR.vis_robot.images[0].robot_random_img.src = RUR.base_url + '/src/images/robot_random.png';
+RUR.vis_robot.images[0].robot_random_img.src = RUR.base_url + 'src/images/robot_random.png';
 
 // rover type
 RUR.vis_robot.images[1].robot_e_img = new Image();
-RUR.vis_robot.images[1].robot_e_img.src = RUR.base_url + '/src/images/rover_e.png';
+RUR.vis_robot.images[1].robot_e_img.src = RUR.base_url + 'src/images/rover_e.png';
 RUR.vis_robot.images[1].robot_n_img = new Image();
-RUR.vis_robot.images[1].robot_n_img.src = RUR.base_url + '/src/images/rover_n.png';
+RUR.vis_robot.images[1].robot_n_img.src = RUR.base_url + 'src/images/rover_n.png';
 RUR.vis_robot.images[1].robot_w_img = new Image();
-RUR.vis_robot.images[1].robot_w_img.src = RUR.base_url + '/src/images/rover_w.png';
+RUR.vis_robot.images[1].robot_w_img.src = RUR.base_url + 'src/images/rover_w.png';
 RUR.vis_robot.images[1].robot_s_img = new Image();
-RUR.vis_robot.images[1].robot_s_img.src = RUR.base_url + '/src/images/rover_s.png';
+RUR.vis_robot.images[1].robot_s_img.src = RUR.base_url + 'src/images/rover_s.png';
 RUR.vis_robot.images[1].robot_random_img = new Image();
-RUR.vis_robot.images[1].robot_random_img.src = RUR.base_url + '/src/images/rover_random.png';
+RUR.vis_robot.images[1].robot_random_img.src = RUR.base_url + 'src/images/rover_random.png';
 
 // 3d red type
 RUR.vis_robot.images[2].robot_e_img = new Image();
-RUR.vis_robot.images[2].robot_e_img.src = RUR.base_url + '/src/images/plain_e.png';
+RUR.vis_robot.images[2].robot_e_img.src = RUR.base_url + 'src/images/plain_e.png';
 RUR.vis_robot.images[2].robot_n_img = new Image();
-RUR.vis_robot.images[2].robot_n_img.src = RUR.base_url + '/src/images/plain_n.png';
+RUR.vis_robot.images[2].robot_n_img.src = RUR.base_url + 'src/images/plain_n.png';
 RUR.vis_robot.images[2].robot_w_img = new Image();
-RUR.vis_robot.images[2].robot_w_img.src = RUR.base_url + '/src/images/plain_w.png';
+RUR.vis_robot.images[2].robot_w_img.src = RUR.base_url + 'src/images/plain_w.png';
 RUR.vis_robot.images[2].robot_s_img = new Image();
-RUR.vis_robot.images[2].robot_s_img.src = RUR.base_url + '/src/images/plain_s.png';
+RUR.vis_robot.images[2].robot_s_img.src = RUR.base_url + 'src/images/plain_s.png';
 RUR.vis_robot.images[2].robot_random_img = new Image();
-RUR.vis_robot.images[2].robot_random_img.src = RUR.base_url + '/src/images/robot_random.png';
+RUR.vis_robot.images[2].robot_random_img.src = RUR.base_url + 'src/images/robot_random.png';
 
 // solar panel type
 RUR.vis_robot.images[3].robot_e_img = new Image();
-RUR.vis_robot.images[3].robot_e_img.src = RUR.base_url + '/src/images/sp_e.png';
+RUR.vis_robot.images[3].robot_e_img.src = RUR.base_url + 'src/images/sp_e.png';
 RUR.vis_robot.images[3].robot_n_img = new Image();
-RUR.vis_robot.images[3].robot_n_img.src = RUR.base_url + '/src/images/sp_n.png';
+RUR.vis_robot.images[3].robot_n_img.src = RUR.base_url + 'src/images/sp_n.png';
 RUR.vis_robot.images[3].robot_w_img = new Image();
-RUR.vis_robot.images[3].robot_w_img.src = RUR.base_url + '/src/images/sp_w.png';
+RUR.vis_robot.images[3].robot_w_img.src = RUR.base_url + 'src/images/sp_w.png';
 RUR.vis_robot.images[3].robot_s_img = new Image();
-RUR.vis_robot.images[3].robot_s_img.src = RUR.base_url + '/src/images/sp_s.png';
+RUR.vis_robot.images[3].robot_s_img.src = RUR.base_url + 'src/images/sp_s.png';
 RUR.vis_robot.images[3].robot_random_img = new Image();
-RUR.vis_robot.images[3].robot_random_img.src = RUR.base_url + '/src/images/robot_random.png';
+RUR.vis_robot.images[3].robot_random_img.src = RUR.base_url + 'src/images/robot_random.png';
 
 RUR.vis_robot.style = 0;
 
@@ -5770,7 +5770,7 @@ $(document).ready(function() {
     RUR.zz_dr_onchange();
     RUR.zz_dr_editor_ui();
 
-    brython({debug:1, pythonpath:['/src/python']});
+    brython({debug:1, pythonpath:['src/python']});
 
     RUR.ui.show_only_reload2(false);
 
@@ -6148,7 +6148,7 @@ Blockly.Blocks['_star_'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(RUR.translate("star"))
-        .appendField(new Blockly.FieldImage("/src/images/star.png", 15, 15, RUR.translate("star")));
+        .appendField(new Blockly.FieldImage("src/images/star.png", 15, 15, RUR.translate("star")));
     this.setOutput(true, "String");
     this.setColour(0);
   }
@@ -6164,7 +6164,7 @@ Blockly.Blocks['_token_'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(RUR.translate("token"))
-        .appendField(new Blockly.FieldImage("/src/images/token.png", 15, 15, RUR.translate("token")));
+        .appendField(new Blockly.FieldImage("src/images/token.png", 15, 15, RUR.translate("token")));
     this.setOutput(true, "String");
     this.setColour(0);
   }
@@ -6180,7 +6180,7 @@ Blockly.Blocks['_apple_'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(RUR.translate("apple"))
-        .appendField(new Blockly.FieldImage("/src/images/apple.png", 15, 15, RUR.translate("apple")));
+        .appendField(new Blockly.FieldImage("src/images/apple.png", 15, 15, RUR.translate("apple")));
     this.setOutput(true, "String");
     this.setColour(0);
   }
@@ -6196,7 +6196,7 @@ Blockly.Blocks['_carrot_'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(RUR.translate("carrot"))
-        .appendField(new Blockly.FieldImage("/src/images/carrot.png", 15, 15, RUR.translate("carrot")));
+        .appendField(new Blockly.FieldImage("src/images/carrot.png", 15, 15, RUR.translate("carrot")));
     this.setOutput(true, "String");
     this.setColour(0);
   }
@@ -6212,7 +6212,7 @@ Blockly.Blocks['_dandelion_'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(RUR.translate("dandelion"))
-        .appendField(new Blockly.FieldImage("/src/images/dandelion.png", 15, 15, RUR.translate("dandelion")));
+        .appendField(new Blockly.FieldImage("src/images/dandelion.png", 15, 15, RUR.translate("dandelion")));
     this.setOutput(true, "String");
     this.setColour(0);
   }
@@ -6228,7 +6228,7 @@ Blockly.Blocks['_daisy_'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(RUR.translate("daisy"))
-        .appendField(new Blockly.FieldImage("/src/images/daisy.png", 15, 15, RUR.translate("daisy")));
+        .appendField(new Blockly.FieldImage("src/images/daisy.png", 15, 15, RUR.translate("daisy")));
     this.setOutput(true, "String");
     this.setColour(0);
   }
@@ -6244,7 +6244,7 @@ Blockly.Blocks['_triangle_'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(RUR.translate("triangle"))
-        .appendField(new Blockly.FieldImage("/src/images/triangle.png", 15, 15, RUR.translate("triangle")));
+        .appendField(new Blockly.FieldImage("src/images/triangle.png", 15, 15, RUR.translate("triangle")));
     this.setOutput(true, "String");
     this.setColour(0);
   }
@@ -6260,7 +6260,7 @@ Blockly.Blocks['_square_'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(RUR.translate("square"))
-        .appendField(new Blockly.FieldImage("/src/images/square.png", 15, 15, RUR.translate("square")));
+        .appendField(new Blockly.FieldImage("src/images/square.png", 15, 15, RUR.translate("square")));
     this.setOutput(true, "String");
     this.setColour(0);
   }
@@ -6276,7 +6276,7 @@ Blockly.Blocks['_strawberry_'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(RUR.translate("strawberry"))
-        .appendField(new Blockly.FieldImage("/src/images/strawberry.png", 15, 15, RUR.translate("strawberry")));
+        .appendField(new Blockly.FieldImage("src/images/strawberry.png", 15, 15, RUR.translate("strawberry")));
     this.setOutput(true, "String");
     this.setColour(0);
   }
@@ -6292,7 +6292,7 @@ Blockly.Blocks['_leaf_'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(RUR.translate("leaf"))
-        .appendField(new Blockly.FieldImage("/src/images/leaf.png", 15, 15, RUR.translate("leaf")));
+        .appendField(new Blockly.FieldImage("src/images/leaf.png", 15, 15, RUR.translate("leaf")));
     this.setOutput(true, "String");
     this.setColour(0);
   }
@@ -6308,7 +6308,7 @@ Blockly.Blocks['_banana_'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(RUR.translate("banana"))
-        .appendField(new Blockly.FieldImage("/src/images/banana.png", 15, 15, RUR.translate("banana")));
+        .appendField(new Blockly.FieldImage("src/images/banana.png", 15, 15, RUR.translate("banana")));
     this.setOutput(true, "String");
     this.setColour(0);
   }
@@ -6324,7 +6324,7 @@ Blockly.Blocks['_orange_'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(RUR.translate("orange"))
-        .appendField(new Blockly.FieldImage("/src/images/orange.png", 15, 15, RUR.translate("orange")));
+        .appendField(new Blockly.FieldImage("src/images/orange.png", 15, 15, RUR.translate("orange")));
     this.setOutput(true, "String");
     this.setColour(0);
   }
@@ -6340,7 +6340,7 @@ Blockly.Blocks['_tulip_'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(RUR.translate("tulip"))
-        .appendField(new Blockly.FieldImage("/src/images/tulip.png", 15, 15, RUR.translate("tulip")));
+        .appendField(new Blockly.FieldImage("src/images/tulip.png", 15, 15, RUR.translate("tulip")));
     this.setOutput(true, "String");
     this.setColour(0);
   }
