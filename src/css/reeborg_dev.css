@@ -4,20 +4,21 @@ button:focus, a:focus {outline: none;}
 button[disabled]{
     background: #eee;
 }
-header {position: absolute; top: 0; left: 0; z-index: 10; width: 100%; min-width: 800px;}
-header form {color: white; 
+header {position: absolute; top: 0; left: 0; z-index: 10; width: 100%; min-width: 800px; color: white;}
+header form {color: white;
     position: relative;
     font-weight: bold;
     float: left;
     padding: 5px;
     padding-top: 8px;
     font-size: 0.8em;
-    margin-left: 100px;
+    margin-left: 5px;
+    border-left: 1px solid rgba(255,255,255,0.3);
 }
 h1 {font-size: 1.7em; color: #224488;}
 h2 {font-size: 1.3em; color: #224488;}
 h3 {font-size: 1.1em; color: #224488;}
-dl {border: 2px solid #886622; border-radius: 6px; background-color: #faf5ea}
+
 input {border: 2px solid seagreen; background-color: #eff}
 canvas {
     position:absolute;
@@ -35,10 +36,15 @@ nav a{margin:0; display: inline-block;}
 nav a:last-child{border-radius: 0 20px 20px 0;}
 nav a:first-child{border-radius: 20px 0 0 20px;}
 
+select {margin-top: 20px;
+    float:left;
+    margin-right:10px;
+}
+
 button, #contents-button {
-  height: 37px; 
-  position: relative; 
-  font-weight: bold; 
+  height: 37px;
+  position: relative;
+  font-weight: bold;
   float: left; margin: 0;}
 
 a.left-link, a.right-link, button, a.fake_button{
@@ -52,14 +58,50 @@ a.left-link, a.right-link, button, a.fake_button{
     border-top: 0;
     border-bottom: 0;
 }
+
+p button.blue-gradient {
+  float: none;
+}
+span.description {
+    margin-left: 15px;
+}
+
 a[href^="http"] {
     padding-right:16px;
     background:transparent url(../images/external_link.png) right no-repeat;
 }
 
-#permalink {margin-left: 180px;}
-#permalink, #resize {bottom: 24px; background-color: white; border: 0; height: 36px;}
 
+/*   edit world at bottom of canvas */
+fieldset {display: inline-block;
+    border-radius: 10px;
+    color: #123264;
+    border: solid #123264;
+    padding-top: 0;
+}
+
+legend { color: #123264;}
+
+#world-fieldset {width: 550px;
+  position: absolute;
+  top: -40px;
+}
+
+#edit-world {
+  top: 20px;
+}
+
+#file-fieldset{margin-left: 40px;}
+
+/*   ---------------- */
+
+
+
+ #highlight {
+  border: 0;
+  height: 36px;
+}
+#resize {float:right;}
 
 .main_text {width:900px;top:50px; margin:auto;position:relative; margin-bottom: 70px}
 .clear {clear: both; height:0;}
@@ -101,6 +143,13 @@ a.right-link:hover, #language_switcher:hover {
   background-image: -linear-gradient(top, #beff7f, #96c423 50%, #75a110);
 }
 .alert .ui-widget-header {background-color: red; background-image: none;}
+.concludes .ui-widget-header {background-color: #75a110;
+  background-image: -webkit-linear-gradient(top, #beff7f, #96c423 50%, #75a110);
+  background-image: -moz-linear-gradient(top, #beff7f, #96c423 50%, #75a110);
+  background-image: -ms-linear-gradient(top, #beff7f, #96c423 50%, #75a110);
+  background-image: -o-linear-gradient(top, #beff7f, #96c423 50%, #75a110);
+  background-image: -linear-gradient(top, #beff7f, #96c423 50%, #75a110);
+}
 .green-border {border-bottom: 4px solid #75a110;}
 .ui-widget-header {border-bottom: 3px solid #75a110;}
 .success {color: green; list-style: none;}
@@ -122,7 +171,7 @@ p.try {
 .cm-s-reeborg-dark.CodeMirror { background: #112244; color: white; border: 0;}
 .cm-s-reeborg-dark .CodeMirror-gutters { background: #224488; border-right: 3px solid rgb(117,161,16); }
 .cm-s-reeborg-dark .CodeMirror-linenumber {font-size: 9pt; color: white; }
-.cm-s-reeborg-dark .CodeMirror-cursor { border-left: 1px solid white !important; }
+.cm-s-reeborg-dark .CodeMirror-cursor {border-left: 2px solid white !important; }
 .cm-s-reeborg-dark .cm-comment { color: #9c9; font-style:italic; line-height: 1em; }
 .cm-s-reeborg-dark .cm-atom { color: #F4C20B; }
 .cm-s-reeborg-dark .cm-number, .cm-s-reeborg-dark .cm-attribute { color: #cef; }
@@ -166,22 +215,19 @@ p.try {
 #logo img{float: left; padding:0; margin:0; position:absolute; top:5px; left:5px;}
 #language_switcher {text-decoration: none; color: white; margin-right:50px; float: right; font-size: 25px;
 padding:3px;}
-#run {margin-left: 50px;}
+#run {margin-left: 0;}
 
 #tabs {height: 98%; overflow: auto;}
 #tabs .ui-tabs-panel {padding: 0;}
 #editor, #library { width: 100%; height: 90%;}
 #editor-panel {scroll-x: auto;}
 #cmd-result {color: green;}
-#save-library, #load-library {display: none;}
-#library-problem {background-color: #96c423; color: white; display:none; margin: 5px;
-  font-size:0.5em; float: right;}
 
-#url_input {display: none; 
-    position: absolute; 
-    top:100px; 
-    left:100px; 
-    z-index:10; 
+#url_input {display: none;
+    position: absolute;
+    top:100px;
+    left:100px;
+    z-index:10;
     background-color: white;
     border: 2px solid blue;
     border-radius: 10px;
@@ -198,14 +244,16 @@ padding:3px;}
   bottom: -40px;
 }
 #image-choice-buttons {
-  position: absolute;
-  bottom: -90px;
+  float: right;
 }
 #image-choice-buttons button {
     margin-left: 10px;
+    background: white;
+    border: 1px solid blue;
+    border-radius: 3px;
 }
 
-#diary-wrapper {   
+#diary-wrapper {
   margin-top: 5px;
   width: 98%;
   height: 550px;
@@ -215,14 +263,11 @@ padding:3px;}
   padding: 0 5px;
   }
 
-#fileInput, #worldfileInput {display:none;}
-#worldfileInput {position: relative; top: 200px;}
-
-#world-controls, #diary-controls {
+#game-controls, #world-controls, #diary-controls {
   position: absolute;
   top: 5px;
 }
-#world-controls button, #diary-controls button, #world-edit-buttons button {margin-right: 4px;}
+#game-controls button, #world-controls button, #diary-controls button, #world-edit-buttons button {margin-right: 4px;}
 
 #world-panel {
     width: 620px;
@@ -230,9 +275,9 @@ padding:3px;}
 #output-panel, #editor-panel, #edit-world-panel {
     width: 590px;
 }
-#world-panel, #output-panel, #editor-panel, #edit-world-panel {   
+#world-panel, #output-panel, #editor-panel, #edit-world-panel {
     margin-top: 32px;
-    position: relative; 
+    position: relative;
     display: none;
     height: 600px;
     padding: 0 5px;
@@ -369,6 +414,8 @@ footer a:hover{
  list-style: none;
  position: relative;
  width: 100px;
+ text-align: center;
+ display: inline;
 }
 
 .editor-highlight {

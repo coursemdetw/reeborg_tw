@@ -402,14 +402,14 @@ class defaultdict(dict):
         dict.__init__(self, args, kwds)
         self.default_factory = default_factory
         self.update(args, kwds)
-        #super(defaultdict, self).__init__(*args, **kwds)
+        super(defaultdict, self).__init__(*args, **kwds)
 
     #fixme..  had to add this function to get defaultdict working with brython correctly
-    def __getitem__(self, key):
-        if self.__contains__(key):  
-           return dict.__getitem__(self,key)
-    
-        return self.__missing__(key)
+    #def __getitem__(self, key):
+    #    if self.__contains__(key):  
+    #       return dict.__getitem__(self,key)
+    #
+    #    return self.__missing__(key)
 
     def __missing__(self, key):
         # from defaultdict docs
@@ -445,7 +445,7 @@ class defaultdict(dict):
 
         #   This API is used by pickle.py and copy.py.
         #
-        return (type(self), (self.default_factory,), None, None, self.iteritems())
+        return (type(self), (self.default_factory,), None, None, self.items())
 
 from operator import itemgetter as _itemgetter
 from keyword import iskeyword as _iskeyword
@@ -509,12 +509,13 @@ def namedtuple(typename, field_names, verbose=False, rename=False):
     numfields = len(field_names)
     argtxt = repr(field_names).replace("'", "")[1:-1]   # tuple repr without parens or quotes
     reprtxt = ', '.join('%s=%%r' % name for name in field_names)
+
     template = '''class %(typename)s(tuple):
         '%(typename)s(%(argtxt)s)' \n
         __slots__ = () \n
         _fields = %(field_names)r \n
         def __new__(_cls, %(argtxt)s):
-            return _tuple.__new__(_cls, (%(argtxt)s)) \n
+            return tuple.__new__(_cls, (%(argtxt)s)) \n
         @classmethod
         def _make(cls, iterable, new=tuple.__new__, len=len):
             'Make a new %(typename)s object from a sequence or iterable'
