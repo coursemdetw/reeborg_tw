@@ -17,6 +17,11 @@
 <v t="amd.20160213222842.2"><vh>@edit index_en.html</vh></v>
 <v t="amd.20160213223018.1"><vh>@edit index.html</vh></v>
 <v t="amd.20160213223914.1"><vh>@edit world.html</vh></v>
+<v t="amd.20160213225943.1" a="E"><vh>@path src</vh>
+<v t="amd.20160213225953.1" a="E"><vh>@path js</vh>
+<v t="amd.20160213230002.1"><vh>@edit zzz_doc_ready.js</vh></v>
+</v>
+</v>
 </vnodes>
 <tnodes>
 <t tx="amd.20160213222901.1"></t>
@@ -95,5 +100,7 @@ QLineEdit#editorLabel {
 }</t>
 <t tx="amd.20160213222901.3">horizontal: body pane to the left
 vertical: body pane on the botton</t>
+<t tx="amd.20160213225943.1"></t>
+<t tx="amd.20160213225953.1"></t>
 </tnodes>
 </leo_file>

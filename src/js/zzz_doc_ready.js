@@ -43,7 +43,7 @@ $(document).ready(function() {
     RUR.zz_dr_onchange();
     RUR.zz_dr_editor_ui();
 
-    brython({debug:1, pythonpath:['/src/python']});
+    brython({debug:1, pythonpath:['src/python']});
 
     RUR.ui.show_only_reload2(false);
 
